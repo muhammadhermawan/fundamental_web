@@ -9,20 +9,20 @@
 //penerapan promise dengan jika data berhasil diproses maka dilakukan fungsi resolve
 //dan jika data gagal diproses maka menjalankan fungsi reject
 
-import clubs from './clubs.js';
 
 class DataSource {
-    static searchClub (keyword) {
-        return new Promise ((resolve, reject) => {
-            const filteredClubs = clubs.filter(club => club.name.toUpperCase().includes(keyword.toUpperCase()));
-
-            if (filteredClubs.length) {
-                resolve(filteredClubs);
+    static searchMeal(keyword) {
+        return fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${keyword}`)
+        .then (response => {
+            return response.json();
+        })
+        .then (responseJson => {
+            if(responseJson.foods) {
+                return Promise.resolve(responseJson.foods);
             } else {
-                reject(`${keyword} is not found`);
+                return Promise.reject(`${keyword} is not found`);
             }
-        });
-        
+        })
     }
 }
 

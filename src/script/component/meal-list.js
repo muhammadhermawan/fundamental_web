@@ -1,13 +1,13 @@
-import './club-item.js';
+import './meal-item.js';
 
-class ClubList extends HTMLElement {
+class MealList extends HTMLElement {
     constructor() {
         super();
         this.shadowDOM = this.attachShadow({mode: "open"});
     }
     
-    set clubs(clubs) {
-        this._clubs = clubs;
+    set meals(meals) {
+        this._meals = meals;
         this.render();
     }
 
@@ -29,12 +29,12 @@ class ClubList extends HTMLElement {
 
     render() {
         this.shadowDOM.innerHTML = "";
-        this._clubs.forEach( club => {
-            const clubItemElement = document.createElement("club-item");
-            clubItemElement.club = club
-            this.shadowDOM.appendChild(clubItemElement);
+        this._meals.forEach( meal => {
+            const mealItemElement = document.createElement("meal-item");
+            mealItemElement.meal = meal
+            this.shadowDOM.appendChild(mealItemElement);
         })
     }
 }
 
-customElements.define("club-list", ClubList);
+customElements.define("meal-list", MealList);

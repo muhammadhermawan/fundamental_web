@@ -2,14 +2,14 @@
 // karena tidak menggunakan melakukan inputan variable dinamis makanya digunakan const
 
 //penerapan arrow function pada fungsi tanpa mendeklarasi parameter (default parameter)
-import '../component/club-list.js';
+import '../component/meal-list.js';
 import '../component/search-bar.js';
 import DataSource from '../data/data-source.js';
 
 const main = () => {
     const searchElement = document.querySelector("search-bar");
     //const buttonSearchElement = document.querySelector("#searchButtonElement");
-    const clubListElement = document.querySelector("club-list");
+    const mealListElement = document.querySelector("meal-list");
 
     //penerapan arrow function pada fungsi tanpa mendeklarasi parameter (default parameter)
 
@@ -17,7 +17,7 @@ const main = () => {
     // yang disesuaikan dengan fungsi sebelumnya
     const onButtonSearchClicked = async () => {
         try{
-            const result = await DataSource.searchClub(searchElement.value);
+            const result = await DataSource.searchMeal(searchElement.value);
             renderResult(result);
         } catch (message) { 
             fallbackResult(message)
@@ -53,11 +53,11 @@ const main = () => {
         //})
     //};
     const renderResult = results => {
-        clubListElement.clubs = results;
+        mealListElement.meals = results;
     };
 
     const fallbackResult = message => {
-        clubListElement.renderError(message);
+        mealListElement.renderError(message);
     };
 
     //menggantikan logika dengan web component dari club-list.js dan club-item.js
