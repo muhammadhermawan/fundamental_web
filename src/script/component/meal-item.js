@@ -25,22 +25,22 @@ class MealItem extends HTMLElement {
             overflow: hidden;
         }
        
-        .fan-art-club {
+        .meal-art {
             width: 50%;
             max-height: 300px;
             object-fit: cover;
             object-position: center;
         }
        
-        .club-info {
+        .meal-info {
             padding: 24px;
         }
        
-        .club-info > h2 {
+        .meal-info > h2 {
             font-weight: lighter;
         }
        
-        .club-info > p {
+        .meal-info > p {
             margin-top: 10px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -49,8 +49,8 @@ class MealItem extends HTMLElement {
             -webkit-line-clamp: 10; /* number of lines to show */
         }
         </style>
-        <img class="fan-art-club" src="${this._meal.strMealThumb}" alt="Fan Art">
-            <div class="club-info">
+        <img class="meal-art" src="${this._meal.strMealThumb}" alt="Meal Art">
+            <div class="meal-info">
                 <h2>${this._meal.strMeal}</h2>
                 <p>${this._meal.strInstructions}</p>
             </div>
